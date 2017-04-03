@@ -464,9 +464,15 @@ askcmd (void)
          pndx = PBEG;
  
          /* Read input */
-         tbuf[0] = '0';
-         if ((fgets (tbuf + 1, sizeof (tbuf) - 1, stdin) != NULL) && (tbuf[1] != '\n'))
-            val = Parser (tbuf);
+	 tbuf[0] = '0';
+         if ((fgets (&tbuf[1], sizeof (tbuf) - 1, stdin) != NULL) &&
+	       (tbuf[1] != '\n'))
+	 {
+	    if (isalpha (tbuf[1]))
+	       val = Parser (tbuf);
+	    else
+	       val = Parser (&tbuf[1]);
+	 }
          else
             val = 0.0;
  

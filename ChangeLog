@@ -1,3 +1,12 @@
+2017-04-03: Dave Pitts <dpitts@cozx.com>
+
+	* Added OS390 code for character to number mapping.
+	* Added checks to character mapping to askcmd.
+
+2017-04-02: Andrew Savinykh <andrewsav@gmail.com>
+
+	* Added character to number mapping support.
+
 2017-04-01: Dave Pitts <dpitts@cozx.com>
 
 	* Added subscripts to FOR index variables.

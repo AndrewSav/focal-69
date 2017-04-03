@@ -366,8 +366,17 @@ Scanner (char expr[], int *ndx, tokval *svalue, char *toksym)
       dignum = 0.0;
       if (isdigit(lachar)) /* Convert digit to real number */
          dignum = (lachar - '0');
-      else
-         dignum = (upcase(lachar) - 'A' + 1);
+      else if (isalpha(lachar))
+      {
+#if defined(OS390) || defined(OPENEDITION)
+         if (upcase(lachar) >= 'S') /* Allow for "holes" in EBCDIC */
+	    dignum = (upcase(lachar) - 'S' + 19);
+         else if (upcase(lachar) >= 'J')
+	    dignum = (upcase(lachar) - 'J' + 10);
+	 else
+#endif
+	    dignum = (upcase(lachar) - 'A' + 1);
+      }
  
       /* Find state transition given current state and input character */
  
