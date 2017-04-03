@@ -185,7 +185,7 @@ static int digits;                      /* print field significance */
 static long seed;                       /* random number seed */
  
 static char *pcp;                       /* pointer into current PC line */
-static char tbuf[LINE_LEN+1];
+static char tbuf[LINE_LEN+2];
 static char wd[PATH_LEN+1];
  
 static FILE *input;
@@ -464,7 +464,8 @@ askcmd (void)
          pndx = PBEG;
  
          /* Read input */
-         if ((fgets (tbuf, sizeof (tbuf), stdin) != NULL) && (tbuf[0] != '\n'))
+         tbuf[0] = '0';
+         if ((fgets (tbuf + 1, sizeof (tbuf) - 1, stdin) != NULL) && (tbuf[1] != '\n'))
             val = Parser (tbuf);
          else
             val = 0.0;

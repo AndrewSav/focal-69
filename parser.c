@@ -366,6 +366,8 @@ Scanner (char expr[], int *ndx, tokval *svalue, char *toksym)
       dignum = 0.0;
       if (isdigit(lachar)) /* Convert digit to real number */
          dignum = (lachar - '0');
+      else
+         dignum = (upcase(lachar) - 'A' + 1);
  
       /* Find state transition given current state and input character */
  
