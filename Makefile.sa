@@ -1,0 +1,26 @@
+CC = gcc-dx10
+LIBS = /usr/local/lib/gcc/ti990-ti-dx10/3.4.6
+
+EXE = .exe
+OBJ = .o
+
+RM = rm
+
+# Uncomment for SA mode build
+CFLAGS = -Os -mmodel12 -DDX10 -DMINFOCAL -DSMALL_MEMORY $(DEBUG)
+CRT0 = $(LIBS)/crt0sa.o
+
+FOCALOBJS = focal$(OBJ) parser$(OBJ)
+
+all : focal$(EXE)
+
+focal$(EXE) : $(FOCALOBJS)
+	lnk990  -m focal.map -o $@ $(CRT0) -L$(LIBS) $(FOCALOBJS) \
+	-lm -lc -lsoft -lsa
+
+clean :
+	$(RM) -f focal$(EXE) $(FOCALOBJS)
+
+focal$(OBJ) : focal.c parser.h errors.h perrors.h
+parser$(OBJ) : parser.c parser.h errors.h ptables.h stables.h psemant.h \
+	scanner.h

@@ -1,0 +1,30 @@
+CC = gcc-dnos
+LIBS = /usr/local/lib/gcc/ti990-ti-dnos/3.4.6
+
+EXE = .exe
+OBJ = .o
+
+RM = rm
+
+# Uncomment for SCI mode build
+CFLAGS = -Os -mmodel12 -DDX10 -DSYSVDIR -DSMALL_MEMORY $(DEBUG)
+CRT0 = $(LIBS)/crt0.o
+
+# Uncomment for OS mode build (Smaller than SCI)
+#CFLAGS = -Os -DDX10 -DMINFOCAL -DSMALL_MEMORY $(DEBUG)
+#CRT0 = $(LIBS)/crt0os.o
+
+FOCALOBJS = focal$(OBJ) parser$(OBJ)
+
+all : focal$(EXE)
+
+focal$(EXE) : $(FOCALOBJS)
+	lnk990  -m focal.map -o $@ $(CRT0) -L$(LIBS) $(FOCALOBJS) \
+	-lm12 -lc -lsci -lhard 
+
+clean :
+	$(RM) -f focal$(EXE) $(FOCALOBJS)
+
+focal$(OBJ) : focal.c parser.h errors.h perrors.h
+parser$(OBJ) : parser.c parser.h errors.h ptables.h stables.h psemant.h \
+	scanner.h

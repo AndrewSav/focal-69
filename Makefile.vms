@@ -1,0 +1,26 @@
+EXE = .exe
+OBJ = .obj
+OPTS = runtime.opt
+LIBEXT = .olb
+SHLIBEXT = .olb
+
+RM = del
+CP = copy
+
+CFLAGS = /DEF=(VAXVMS,ANSICRT,STRERROR) $(DEBUG)
+
+FOCALOBJS := ( focal parser screen )$(OBJ)
+
+all : focal$(EXE)
+
+focal$(EXE) : $(FOCALOBJS)
+	link $(TARGET) $(FOCALOBJS), $(OPTS)/opt
+	@-purge/nolog
+
+clean :
+	-$(RM) *$(OBJ);*
+	-$(RM) *$(EXE);*
+
+focal$(OBJ) : focal.c parser.h errors.h perrors.h
+parser$(OBJ) : parser.c parser.h errors.h ptables.h stables.h psemant.h scanner.h
+screen$(OBJ) : screen.c

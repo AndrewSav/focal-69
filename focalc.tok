@@ -1,0 +1,4 @@
+#define EOS     3
+#define NUM     15
+#define VAR     17
+#define FNAME   19

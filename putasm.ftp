@@ -1,0 +1,5 @@
+cd test
+put focal.s asm(focal)
+put parser.s asm(parser)
+put screen.s asm(screen)
+quit

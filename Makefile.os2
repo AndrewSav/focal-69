@@ -1,0 +1,27 @@
+#
+# Make file for focal.
+#
+
+OBJ = .obj
+LIBEXT = .lib
+AR = ar
+RM = del
+CP = copy
+EXE = .exe
+
+CFLAGS = /DOS2 $(DEBUG) /Q+ /Ti+ /Gm+
+LINK = ilink/nofree
+
+FOCALOBJS = focal$(OBJ) parser$(OBJ) screen$(OBJ)
+
+all: focal$(EXE)
+
+focal$(EXE) : $(FOCALOBJS) 
+	link $(TARGET) $(FOCALOBJS) $(EXELIBS)
+
+clean:
+   $(RM) $(FOCALOBJS) focal$(EXE)
+
+focal$(OBJ): focal.c parser.h errors.h perrors.h
+parser$(OBJ): parser.c parser.h errors.h ptables.h stables.h psemant.h scanner.h
+screen$(OBJ): screen.c

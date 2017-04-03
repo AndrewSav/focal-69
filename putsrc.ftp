@@ -1,0 +1,11 @@
+cd test
+put errors.h h(errors)
+put focal.c c(focal)
+put parser.c c(parser)
+put parser.h h(parser)
+put perrors.h h(perrors)
+put psemant.h h(psemant)
+put ptables.h h(ptables)
+put scanner.h h(scanner)
+put stables.h h(stables)
+quit

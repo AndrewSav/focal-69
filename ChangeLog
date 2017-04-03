@@ -1,0 +1,37 @@
+2017-04-01: Dave Pitts <dpitts@cozx.com>
+
+	* Added subscripts to FOR index variables.
+
+2017-04-01: Dave Pitts <dpitts@cozx.com>
+
+	* Fixed FOR loop initial check.
+	* Fixed LIBRARY CALL SEGV if missing newline.
+
+2014-05-13: Dave Pitts <dpitts@cozx.com>
+
+	* Added TI-990 DNOS support.
+
+2011-11-01: Dave Pitts <dpitts@cozx.com>
+
+	* Fixed stables.h to return EOLN for carriage return and line feed.
+	* Fixed SCAN_ERROR values to match scan state.
+	* Fixed scanner.h to use DBL_MAX_10_EXP for exponent check.
+
+2011-10-26: Dave Pitts <dpitts@cozx.com>
+
+	* Fix askcmd read input.
+	* Some DX10 fixes.
+
+2011-02-22: Dave Pitts <dpitts@cozx.com>
+
+	* Added TI-990 DX10 support.
+
+2010-01-29: Dave Pitts <dpitts@cozx.com>
+
+        * Remove compile warnings from focal.c
+        * Fixed line buffering in Ask commands.
+        * Fixed banner print.
+
+2009-12-07: Dave Pitts <dpitts@cozx.com>
+
+	* Initial versioned release with GPL copyright.

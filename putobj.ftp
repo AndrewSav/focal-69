@@ -1,0 +1,6 @@
+cd test
+bin
+put focal.o obj(focal)
+put parser.o obj(parser)
+put screen.o obj(screen)
+quit
