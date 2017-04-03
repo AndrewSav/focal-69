@@ -2,8 +2,8 @@
 
 ## I. Introduction
 
-FOCAL is an interpretive language that was developed by Digital Equipment 
-Corporation (DEC) in the late 1960's for their minicomputers. To learn the 
+FOCAL is an interpretive language that was developed by Digital Equipment
+Corporation (DEC) in the late 1960's for their minicomputers. To learn the
 FOCAL language please refer to the DEC Programming Languages Handbook:
 
 <http://www.bitsavers.org/pdf/dec/pdp8/handbooks/programmingLanguages_May70.pdf>
